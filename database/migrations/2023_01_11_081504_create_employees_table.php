@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('name');
             $table->text('designation');
             $table->string('salary')->nullable();
-            $table->string('salary')->nullable();
             $table->date('join_date')->nullable();
             $table->timestamps();
         });
