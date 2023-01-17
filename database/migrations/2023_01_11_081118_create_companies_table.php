@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('address')->nullable();
             $table->string('contact')->nullable();
-            $table->string('email')->nullable();
+            $table->string('email')->unique()->nullable();
             $table->string('country')->nullable();
             $table->tinyInteger('type')->comment('1 for Bank, 2 for Customer, 3 for Factory');;
             $table->timestamps();

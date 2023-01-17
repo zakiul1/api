@@ -15,10 +15,12 @@ class DatabaseSeeder extends Seeder
      * @return void
      */
     public function run()
+
     {
+
         /*  \App\Models\User::factory(10)->create(); */
 
-            User::create([
+       /*      User::create([
 
             'name' => 'Zakiul Islam',
 
@@ -26,6 +28,12 @@ class DatabaseSeeder extends Seeder
 
             'password' => bcrypt('123456'),
 
-        ]);
+        ]); */
+        $this->call([
+        CompanySeeder::class,
+        EmployeeSeeder::class
+      
+    ]);
+     
     }
 }

@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\CommonController\AccountController;
+use App\Http\Controllers\CommonController\CompanyController;
+use App\Http\Controllers\CommonController\EmployeeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -25,3 +28,6 @@ Route::middleware('auth:sanctum')->group(function () {
 });
 Route::post('/login',[AuthController::class,'login']);
 Route::post('/signup',[AuthController::class,'signup']);
+Route::get('/company',[CompanyController::class,'index']);
+Route::get('/employees',[EmployeeController::class,'index']);
+Route::get('/account',[AccountController::class,'index']);
