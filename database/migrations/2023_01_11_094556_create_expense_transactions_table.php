@@ -24,6 +24,7 @@ return new class extends Migration
             $table->foreign('employ_id')->references('id')->on('employees')->onDelete('cascade');
             $table->float('amount', 12, 2);
             $table->date('date')->nullable();
+            $table->string('voucher')->nullable();
             $table->string('reference')->nullable();
             $table->timestamps();
         });
