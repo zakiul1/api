@@ -10,6 +10,10 @@ class CompanyController extends Controller
 {
     public function index(){
         $data=Company::all();
+
+      
+      
+    
         return $data;
     }
 }
