@@ -8,28 +8,29 @@ use Illuminate\Http\Request;
 
 class ExpenseHeadController extends Controller
 {
+    function rec($id){
+        $data=ExpenseHead::whereParent($id)->get();
+        $exData=[];
+        foreach($data as $parent){
+          $singleItem=['id'=>$parent->id,'name'=>$parent->name];
+          $childs=ExpenseHead::whereParent($parent->id)->count();
+          if($childs > 0){
+                $singleItem['child']=$this->rec($parent->id);
+            }
+          $exData[]=$singleItem;
+        }
+        return $exData;
+    }
+    
     public function index(){
-        $data=ExpenseHead::all();
-        return $data;
+        return $this->rec(0);
     }
     public function create(Request $request){
-     // dd($request->all());
-              $validatedData = $request->validate([
-
-                'name' => 'required',
-                'type' => 'required'
-
-            ], [
-
-                'name.required' => 'Name field is required.',
-
-                'expenseHeadId.required' => 'Expense Head Must Be Select',
-
-
-            ]);
-
-
-             $head = ExpenseHead::create($validatedData);
+             $data= new ExpenseHead;
+             $data->name=$request->name;
+             $data->parent=intval($request->parent);
+             $data->type=intval($request->type);
+             $data->save();
              return response()->json();
 }
 }

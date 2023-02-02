@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('expense_heads', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->tinyInteger('parrent')->nullable()->comment('Expense Name ID');
+            $table->tinyInteger('parent')->nullable()->comment('Expense Name ID');
             $table->tinyInteger('type');
             $table->timestamps();
         });
