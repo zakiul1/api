@@ -23,7 +23,7 @@ class ExpenseHeadController extends Controller
        /*  $data=ExpenseHead::all();
         return $data; */
     }
-    
+
     public function index(){
         return $this->rec(0);
     }
@@ -33,6 +33,9 @@ class ExpenseHeadController extends Controller
              $data->parent=intval($request->parent);
              $data->type=intval($request->type);
              $data->save();
-             return response()->json();
+        return response([
+            'message' => 'Data Insert Successfully',
+            'status'=>'passed'
+        ], 200);
 }
 }
