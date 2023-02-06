@@ -20,6 +20,8 @@ class ExpenseHeadController extends Controller
           $exData[]=$singleItem;
         }
         return $exData;
+       /*  $data=ExpenseHead::all();
+        return $data; */
     }
     
     public function index(){
