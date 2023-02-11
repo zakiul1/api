@@ -15,13 +15,13 @@ class ExpenseHeadController extends Controller
           $singleItem=['id'=>$parent->id,'name'=>$parent->name];
           $childs=ExpenseHead::whereParent($parent->id)->count();
           if($childs > 0){
-                $singleItem['child']=$this->rec($parent->id);
+                $singleItem['children']=$this->rec($parent->id);
             }
           $exData[]=$singleItem;
         }
+        
         return $exData;
-       /*  $data=ExpenseHead::all();
-        return $data; */
+      
     }
 
     public function index(){
